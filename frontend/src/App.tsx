@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import jenkinsLogo from './assets/Jenkins_logo.svg.png' // เพิ่มโลโก้ Jenkins
 import './App.css'
 
 function App() {
@@ -8,26 +7,30 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+      <div className="header">
+        <a href="https://www.jenkins.io/" target="_blank" rel="noopener noreferrer">
+          <img src={jenkinsLogo} className="logo" alt="Jenkins logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Welcome to Jenkins CI/CD Demo</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+  <button onClick={() => setCount((count) => count + 1)}>
+    SCORE: {count}
+  </button>
+  <p style={{ textAlign: 'center' }}>
+    BY<br />
+    B6526436 SUPHUTSORN SOISUWAN<br />
+    B6507022 PADUNGSIT SUPROM-IN
+  </p>
+</div>
+
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Jenkins logo to learn more about Jenkins CI/CD
       </p>
+
+      <footer className="footer">
+        <p>Powered by Jenkins and Vite</p>
+      </footer>
     </>
   )
 }
