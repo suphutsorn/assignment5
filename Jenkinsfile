@@ -45,13 +45,14 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                dir('frontend') {
-                    echo "Deploying to Firebase Hosting..."
-                    // ใช้ Firebase token สำหรับ deploy
-                    sh "firebase deploy --only hosting --token ${FIREBASE_TOKEN}"
-                }
-            }
+    steps {
+        dir('frontend') {
+            echo "Deploying to Firebase Hosting..."
+            sh 'npm install -g firebase-tools' // ติดตั้ง firebase-tools ใน Jenkins agent
+            sh "firebase deploy --only hosting --token ${FIREBASE_TOKEN}"
         }
+    }
+}
+
     }
 }
