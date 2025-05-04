@@ -12,31 +12,41 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Install') {
             steps {
-                echo "Installing dependencies..."
-                sh 'npm install'
+                dir('frontend') {
+                    echo "Installing dependencies..."
+                    sh 'npm install'
+                }
             }
         }
 
         stage('Build') {
             steps {
-                echo "Building React project..."
-                sh 'npm run build'
+                dir('frontend') {
+                    echo "Building React project..."
+                    sh 'npm run build'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running tests..."
-                sh 'npm test'
+                dir('frontend') {
+                    echo "Running tests..."
+                    sh 'npm test'
+                }
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying..."
-                // เช่น copy ไปยัง /var/www หรือ run 'serve -s dist'
+                dir('frontend') {
+                    echo "Deploying..."
+                    // เช่น copy ไปยัง /var/www หรือ run 'serve -s dist'
+                    // sh 'serve -s build' ถ้าคุณใช้ serve
+                }
             }
         }
     }
